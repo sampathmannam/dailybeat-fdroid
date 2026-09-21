@@ -1,0 +1,88 @@
+name: Publish signed repository
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dailybeat-repository-publish
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.repository == 'sampathmannam/dailybeat-fdroid' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: repository-signing
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@40fd30fb8d7440372e1316f5d1809ec01dcd3699 # v4.0.1
+      - name: Install repository tools
+        run: |
+          sdkmanager 'build-tools;35.0.0'
+          python -m pip install --require-hashes -r requirements-ci.lock
+      - name: Test before accessing the signing key
+        run: python -m unittest discover -s tests -v
+      - name: Refuse a superseded or replayed source commit
+        run: test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+      - name: Verify APK and build signed repository
+        env:
+          DAILYBEAT_REPO_KEYSTORE_BASE64: ${{ secrets.DAILYBEAT_REPO_KEYSTORE_BASE64 }}
+          DAILYBEAT_REPO_PASSWORD: ${{ secrets.DAILYBEAT_REPO_PASSWORD }}
+        run: |
+          python - <<'PY'
+          import base64
+          import os
+          from pathlib import Path
+          import subprocess
+          import tempfile
+
+          with tempfile.TemporaryDirectory(prefix='dailybeat-repo-key-') as private_dir:
+              key_path = Path(private_dir) / 'repository.p12'
+              key_path.write_bytes(base64.b64decode(os.environ.pop('DAILYBEAT_REPO_KEYSTORE_BASE64'), validate=True))
+              key_path.chmod(0o600)
+              subprocess.run([
+                  'python', 'scripts/build_repository.py',
+                  '--output', 'build', '--keystore', str(key_path),
+              ], check=True)
+          PY
+      - name: Independently verify public artifacts without signing credentials
+        run: python scripts/build_repository.py --verify-only --output build
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: build/site
+          retention-days: 1
+
+  deploy:
+    needs: build
+    if: github.repository == 'sampathmannam/dailybeat-fdroid' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Refuse deployment of an obsolete workflow run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: test "$(gh api repos/sampathmannam/dailybeat-fdroid/git/ref/heads/main --jq .object.sha)" = "$GITHUB_SHA"
+      - name: Deploy verified signed catalog
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

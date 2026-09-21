@@ -1,0 +1,6 @@
+{
+  "name": "DailyBeat — Google-free",
+  "url": "https://sampathmannam.github.io/dailybeat-fdroid/fdroid/repo",
+  "description": "DailyBeat's independently maintained repository for its Google-free Android build. This is not the official F-Droid repository or an endorsement by F-Droid. Journal journeys, places and notes locally. Online maps are on by default; optional cloud AI is off by default. This build uses Android platform location and does not include the developer's managed cloud-backup configuration. Source and licence: https://github.com/sampathmannam/dailybeat (GPL-3.0-only).",
+  "fingerprint": "5FFE8C00EA81C6B8639E958B2380D438D853C15A482798F53927699F35B57CD0"
+}

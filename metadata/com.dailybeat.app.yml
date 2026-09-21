@@ -1,0 +1,27 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Optional cloud drafting offers presets for proprietary AI services; it is off by default.
+  TetheredNet:
+    en-US: Optional verified Tamil Nadu map downloads are hosted on GitHub Releases.
+  Tracking:
+    en-US: Online maps are on by default and disclose the IP address and viewed areas to map providers. They can be disabled in Settings.
+Categories:
+  - Navigation
+  - Writing
+License: GPL-3.0-only
+AuthorName: sampathmannam
+WebSite: https://github.com/sampathmannam/dailybeat
+SourceCode: https://github.com/sampathmannam/dailybeat/tree/96891eedc9556454d2c1ed8f9a22236ebdc511f4
+IssueTracker: https://github.com/sampathmannam/dailybeat/issues
+Changelog: https://github.com/sampathmannam/dailybeat/blob/96891eedc9556454d2c1ed8f9a22236ebdc511f4/CHANGELOG.md
+AutoName: DailyBeat
+AllowedAPKSigningKeys: 44510de2f642f54f8f046fc05b44227a15a2e8473460594b106e976862d3436f # gitleaks:allow -- public certificate digest
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 4.3.4
+CurrentVersionCode: 38
+MaintainerNotes: |-
+  Binary distribution of the unchanged, upstream-signed Google-free store APK.
+  Source and release inputs are pinned in release.json and verified before indexing.
+  No APK signing keys, private backend configuration or user records are hosted here.
+  This app was developed with AI assistance; its origin is not concealed.

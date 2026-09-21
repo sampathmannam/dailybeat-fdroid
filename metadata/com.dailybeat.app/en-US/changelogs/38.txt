@@ -1,0 +1,1 @@
+Security and reliability update: private document storage and safer sharing, stronger cloud consent and account-session handling, protection against delayed AI/voice/editor saves after erasure or restore, and more resilient GPS processing. Existing history is preserved during upgrade. Restoring a backup now requires renewed Cloud AI consent. No design or colour changes.

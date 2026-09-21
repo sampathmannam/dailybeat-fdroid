@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.apk
+*.jks
+*.p12
+*.keystore
+*.pem
+*.key
+config.yml
+.DS_Store
