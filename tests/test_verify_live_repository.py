@@ -15,6 +15,13 @@ finally:
 
 
 class VerifyLiveRepositoryTest(unittest.TestCase):
+    def test_expired_deadline_is_refused_before_network(self):
+        destination = Path("entry.jar")
+        with mock.patch.object(live.urllib.request, "build_opener") as opener:
+            with self.assertRaises(live.builder.BuildError):
+                live.download_public(live.builder.REPOSITORY_URL + "/entry.jar", destination, 1024, 0)
+            opener.assert_not_called()
+
     def test_live_fetch_rejects_other_hosts_queries_and_paths_before_network(self):
         destination = Path("index-v1.jar")
         for url in ("https://attacker.example/index-v1.jar", live.builder.REPOSITORY_URL + "/../index-v1.jar",

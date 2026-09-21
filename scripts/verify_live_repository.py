@@ -29,6 +29,7 @@ class NoRedirects(urllib.request.HTTPRedirectHandler):
 def download_public(url: str, destination: Path, maximum: int, deadline: float) -> None:
     builder.require(url == builder.REPOSITORY_URL + "/" + destination.name,
                     "Live download left the exact pinned repository path.")
+    builder.require(time.monotonic() < deadline, "Live repository exceeded the verification deadline.")
     request = urllib.request.Request(url, headers={
         "User-Agent": "DailyBeat-Live-Repository-Verification/1",
         "Accept-Encoding": "identity",
@@ -105,7 +106,8 @@ def verify(root: Path) -> dict:
         check_index_archive(repo / "entry.jar", "entry.json")
 
         def approved_file(url):
-            builder.require(url in fetched, "F-Droid requested an unreviewed live index path.")
+            index_urls = {repository["url"] + "/" + name for name in ("index-v1.jar", "entry.jar", "index-v2.json")}
+            builder.require(url in index_urls, "F-Droid requested an unreviewed live index path.")
             return fetched[url]
 
         def bounded_http_get(url, etag=None, timeout=600):
