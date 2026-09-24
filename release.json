@@ -1,9 +1,9 @@
 {
-  "version": "4.3.5",
-  "versionCode": 39,
-  "sourceCommit": "7057b5ea44bdba12ef7224342afee17d3264f2f1",
-  "apkUrl": "https://github.com/sampathmannam/dailybeat/releases/download/fdroid-v4.3.5/DailyBeat-FDroid-v4.3.5.apk",
-  "apkSha256": "7e2f5c0c5d254f33898211eb83f8114319c12419e03ee198ff6641fae0ca0c8b",
+  "version": "4.3.6",
+  "versionCode": 40,
+  "sourceCommit": "8ae7a9d965dcd19dff6821cdc0f86eda719d12bb",
+  "apkUrl": "https://github.com/sampathmannam/dailybeat/releases/download/fdroid-v4.3.6/DailyBeat-FDroid-v4.3.6.apk",
+  "apkSha256": "f42c46f52ac60c1548b8814cb42b976d37e85d8568ff1f7606110889ee8e47ee",
   "apkSignerSha256": "44510de2f642f54f8f046fc05b44227a15a2e8473460594b106e976862d3436f",
   "packageName": "com.dailybeat.app"
 }
