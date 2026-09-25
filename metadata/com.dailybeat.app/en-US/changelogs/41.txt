@@ -1,0 +1,5 @@
+More reliable journey maps: bounded retry, partial-map recovery, safer native lifecycle and offline-map startup.
+Useful approximate locations replace generated unnamed-place labels; saved names stay preferred.
+Days now shows gap-adjusted Tracked time. Weekly distance preserves estimate warnings.
+Fix keyboard overlap, reminder navigation and recovery-toggle accessibility.
+History, privacy choices and colours are preserved. Security, backup and Android checks gate publication.
