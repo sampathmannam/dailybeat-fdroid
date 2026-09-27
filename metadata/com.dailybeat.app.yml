@@ -11,15 +11,15 @@ Categories:
 License: GPL-3.0-only
 AuthorName: sampathmannam
 WebSite: https://github.com/sampathmannam/dailybeat
-SourceCode: https://github.com/sampathmannam/dailybeat/tree/7b5a5d1723840c9aee5ff0ee2c5a61c4dffda241
+SourceCode: https://github.com/sampathmannam/dailybeat/tree/1769acd7d6590ac292d6a9889bef6731d5a2bd15
 IssueTracker: https://github.com/sampathmannam/dailybeat/issues
-Changelog: https://github.com/sampathmannam/dailybeat/blob/7b5a5d1723840c9aee5ff0ee2c5a61c4dffda241/CHANGELOG.md
+Changelog: https://github.com/sampathmannam/dailybeat/blob/1769acd7d6590ac292d6a9889bef6731d5a2bd15/CHANGELOG.md
 AutoName: DailyBeat
 AllowedAPKSigningKeys: 44510de2f642f54f8f046fc05b44227a15a2e8473460594b106e976862d3436f # gitleaks:allow -- public certificate digest
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 4.3.7
-CurrentVersionCode: 41
+CurrentVersion: 4.3.8
+CurrentVersionCode: 42
 MaintainerNotes: |-
   Binary distribution of the unchanged, upstream-signed Google-free store APK.
   Source and release inputs are pinned in release.json and verified before indexing.

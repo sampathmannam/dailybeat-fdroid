@@ -30,8 +30,8 @@ in Obtainium. You do **not** need to switch or uninstall. Uninstalling may erase
 your local history. Make an export or backup before intentionally switching channels.
 
 The standard and Google-free builds share a package name, APK signing certificate,
-and version code. Version 4.3.7 / code 41 may therefore show **no update** if you
-already have code 41. Future higher-code Google-free releases can replace an
+and version code. Version 4.3.8 / code 42 may therefore show **no update** if you
+already have code 42. Future higher-code Google-free releases can replace an
 existing standard installation; manage DailyBeat through one chosen update source.
 
 ## What is different in this build?
@@ -47,9 +47,9 @@ existing standard installation; manage DailyBeat through one chosen update sourc
   Device speech recognition may also use a network service.
 - DailyBeat is not an evidence-custody, attendance-verification or emergency system.
 
-See the [privacy information](https://github.com/sampathmannam/dailybeat/blob/7b5a5d1723840c9aee5ff0ee2c5a61c4dffda241/PRIVACY.md),
-[exact v4.3.7 source](https://github.com/sampathmannam/dailybeat/tree/7b5a5d1723840c9aee5ff0ee2c5a61c4dffda241),
-and [downloadable corresponding source](https://github.com/sampathmannam/dailybeat/archive/7b5a5d1723840c9aee5ff0ee2c5a61c4dffda241.tar.gz).
+See the [privacy information](https://github.com/sampathmannam/dailybeat/blob/1769acd7d6590ac292d6a9889bef6731d5a2bd15/PRIVACY.md),
+[exact v4.3.8 source](https://github.com/sampathmannam/dailybeat/tree/1769acd7d6590ac292d6a9889bef6731d5a2bd15),
+and [downloadable corresponding source](https://github.com/sampathmannam/dailybeat/archive/1769acd7d6590ac292d6a9889bef6731d5a2bd15.tar.gz).
 Original code is GPL-3.0-only; third-party components retain their own licences.
 
 The separate [official F-Droid submission](https://gitlab.com/fdroid/fdroiddata/-/merge_requests/49457)

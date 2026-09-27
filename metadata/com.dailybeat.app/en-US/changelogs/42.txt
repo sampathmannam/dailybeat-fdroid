@@ -1,0 +1,4 @@
+Journey maps become interactive sooner and recover from failed styles. MapLibre and route handling are updated.
+Stops without a saved place name can show an approximate offline town label instead of coordinates; this does not identify a venue.
+Today adds grounded, on-device pattern suggestions. Retention and review privacy safeguards are strengthened.
+Existing history, privacy choices and colours are preserved. Actual battery use and venue accuracy have not been established for every device.
